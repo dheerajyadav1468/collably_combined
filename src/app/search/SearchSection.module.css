@@ -1,0 +1,214 @@
+.container {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.searchBar {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.25rem;
+  border-radius: 9999px;
+  background-color: #f3f4f6;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  color: #6b7280;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  overflow-x: auto;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterButton:hover {
+  background-color: #f3f4f6;
+}
+
+.customSelect {
+  position: relative;
+  display: inline-block;
+}
+
+.filterSelect {
+  appearance: none;
+  padding: 0.4rem 2rem 0.4rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterSelect:hover {
+  background-color: #f3f4f6;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+}
+
+.contentGrid {
+  flex: 1;
+  color: #fff;
+  overflow: auto;
+  padding: 0.5rem;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.125rem;
+}
+
+.gridItem {
+  aspect-ratio: 1;
+  background-color: #e5e7eb;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  margin: 0;
+  padding: 0 0.75rem;
+}
+
+.tab {
+  padding: 0.75rem 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.activeTab {
+  color: #000;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+@media (max-width: 360px) {
+  .tabsContainer {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    padding: 0.75rem 1rem;
+  }
+}
+
+.option{
+  color:#ff0055;
+  border: 1rem solid #ff0055;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 10px;
+  scrollbar-width: none;
+}
+
+.gridVideo{
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+}
+
+.gridImage{
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+}
+
+
+/* Sub-tabs styling */
+.subTabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-evenly;
+}
+
+.subTab {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #666;
+}
+
+.activeSubTab {
+  color: #000;
+  border-bottom: 2px solid #000;
+  font-weight: 600;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+  color: #666;
+}

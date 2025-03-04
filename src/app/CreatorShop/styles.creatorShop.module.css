@@ -1,0 +1,299 @@
+.containerShop {
+  padding: 16px;
+  background: #fff;
+  height: 90vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 12px;
+}
+
+.profileImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.iconImage {
+  width: 24px;
+  height: 24px;
+}
+
+.shopInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.shopName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+}
+
+.username {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterBar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  overflow-x: none;
+  -webkit-overflow-scrolling: touch;
+}
+.filterButton {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: white;
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filterButton svg {
+  margin-left: 4px;
+}
+
+.tabList {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0;
+  list-style: none;
+}
+
+.tabItem {
+  padding-bottom: 12px;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tabItem[data-active="true"] {
+  color: #E91E63;
+}
+
+.tabItem[data-active="true"]::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #E91E63;
+  transition: transform 0.3s ease;
+  transform: scaleX(1);
+}
+
+.tabItem::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #E91E63;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tabDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tabCounter {
+  margin-left: 4px;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.emptyStateTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 24px 0 12px;
+}
+
+.emptyStateText {
+  color: #666;
+  font-size: 14px;
+  max-width: 300px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.addButton {
+  background: #E91E63;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+  background: #D81B60;
+}
+
+.postsContainer,
+.collectionsContainer,
+.draftsContainer,
+.linksContainer {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.linksContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 10px;
+  scrollbar-width: none;
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+
+.linkCard {
+  background-color: #c9c9d4;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.2s;
+  margin-bottom: 1rem;
+}
+
+.linkCard:hover {
+  transform: translateY(-2px);
+}
+
+.linkInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkUrl {
+  font-size: 0.9rem;
+  color: #000000;
+  word-break: break-all;
+}
+
+.linkStats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #000000;
+}
+
+.linkStats span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.noLinks {
+  text-align: center;
+  color: #9ca3af;
+  padding: 2rem;
+  background-color: #27272a;
+  border-radius: 0.5rem;
+  margin-bottom: 5rem;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 10px;
+  scrollbar-width: none;
+}
+
+.gridVideo{
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+}
+
+.gridImage{
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+}
