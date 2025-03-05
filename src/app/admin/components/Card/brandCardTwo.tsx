@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/Card/cardBrand"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./table"
-
+import React from "react"
 const brands = [
   { name: "Samsung", total: 2 },
   { name: "LG Brand", total: 2 },

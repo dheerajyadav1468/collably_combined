@@ -39,7 +39,7 @@ const menuGroups = [
             />
           </svg>
         ),
-        label: "Dashboard", route: "/" ,
+        label: "Dashboard", route: "/admin/app" ,
        
       },
       {
@@ -67,7 +67,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Creator",
-        route: "/creator",
+        route: "/admin/app/creator",
         children: [
           { label: "Add Creator", route: "/creatorForm" },
         ],
@@ -106,8 +106,8 @@ const menuGroups = [
           {label: "KYC Unverified", route: "#" },
           { label: "KYC Pending", route: "#" },
           { label: "With Balance", route: "#" },
-          { label: "All Users", route: "/userTable" },
-          { label: "Add Users", route: "/userForm" },
+          { label: "All Users", route: "/admin/app/userTable" },
+          { label: "Add Users", route: "/admin/app/userForm" },
           { label: "Notification to all", route: "#" },
         ],
       },
@@ -132,8 +132,8 @@ const menuGroups = [
         label: "Brand",
         route: "",
         children: [
-          { label: "All Brand", route: "/brandTable" },
-          { label: "Add Brand", route: "/brandForm" },
+          { label: "All Brand", route: "/admin/app/brandTable" },
+          { label: "Add Brand", route: "/admin/app/brandForm" },
           { label: "Withdrawls", route: "#" },
         ],
       },
@@ -158,8 +158,8 @@ const menuGroups = [
         label: "Products",
         route: "",
         children: [
-          { label: "Add Products", route: "/productForm" },
-          { label: "All Products", route: "product-table" },
+          { label: "Add Products", route: "/admin/app/productForm" },
+          { label: "All Products", route: "/admin/app/product-table" },
           { label: "Pending Products", route: "" },
           { label: "Categories", route: "" },
           { label: "Brands", route: "" },
@@ -192,7 +192,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Affiliate",
-        route: "/affiliate",
+        route: "/admin/app/affiliate",
       },
          ],
   },
@@ -263,7 +263,7 @@ const menuGroups = [
         label: "Authentication",
         route: "#",
         children: [
-          { label: "Sign In", route: "/auth/signin" },
+          { label: "Sign In", route: "/admin/app/auth/signin" },
         ],
       },
     ],

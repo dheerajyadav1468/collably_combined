@@ -8,7 +8,7 @@ import { fetchBrand } from "../../app/store/brandSlice";
 import { fetchAllProducts } from "../../app/store/prductSlice";
 import Link from "next/link";
 import Image from "next/image";
-
+import React from "react"
 const ProfileBrand = () => {
   const dispatch = useDispatch<AppDispatch>();
   const searchParams = useSearchParams();

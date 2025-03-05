@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/Card/cardBrand"
-
+import React from "react"
 export function MostSoldProducts() {
   return (
     <Card className="w-[50%] mb-4 mt-3 dark:bg-gray-dark ">

@@ -2,6 +2,7 @@
 
 import { ExternalLink } from "lucide-react"
 import Link from "next/link"
+import React from "react"
 
 interface PanelNavigationProps {
   activePanel: "customer" | "brand"
@@ -12,7 +13,7 @@ export default function PanelNavigation({ activePanel, onPanelChange }: PanelNav
   return (
     <div className="container w-full mb-3">
       <div className="grid md:grid-cols-2 gap-0">
-        <Link target="_blank" href="/customer-panel" passHref>
+        {/* <Link target="_blank" href="admin/app" passHref> */}
           <div
             className={`w-[50%] rounded-lg flex items-center justify-around text-lg font-medium p-3 cursor-pointer ${
               activePanel === "customer"
@@ -24,9 +25,9 @@ export default function PanelNavigation({ activePanel, onPanelChange }: PanelNav
             <span>Customer Panel</span>
             <ExternalLink className="h-5 w-5" />
           </div>
-        </Link>
+        {/* </Link> */}
 
-        <Link target="_blank" href="/brandPanel" passHref>
+        <Link target="_blank" href="/admin/app/brandPanel" passHref>
           <div
             className={`w-[50%] rounded-lg relative right-[14rem] flex items-center justify-around text-lg font-medium p-3 cursor-pointer ${
               activePanel === "brand"

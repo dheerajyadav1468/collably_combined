@@ -5,7 +5,7 @@ import DefaultLayout from "../../../components/Layouts/DefaultLaout";
 import SelectGroupOne from "../../../components/FormElements/SelectGroup/SelectGroupOne";
 import Link from "next/link";
 import InputGroup from "../../../components/FormElements/InputGroup";
-
+import React from "react"
 export const metadata: Metadata = {
   title: "Collably Form Layout Page | Collably - Collably Dashboard Kit",
   description: "This is Collably Form Layout page for Collably Dashboard Kit",

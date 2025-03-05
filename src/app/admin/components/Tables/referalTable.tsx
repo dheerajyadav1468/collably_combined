@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import type { AppDispatch, RootState } from "../../app/store/store"
 import { fetchReferrals } from "../../app/store/referalSlice"
 import { Search, ChevronLeft, ChevronRight } from "lucide-react"
-
+import React from "react"
 interface Referral {
   _id: string
   userId: {
@@ -33,7 +33,7 @@ export default function ReferralTable() {
   const filteredReferrals = (referrals || []).filter((referral: Referral) => {
     return (
       !searchTerm ||
-      (referral.userId?.username && referral.userId.username.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (referral.userId?.username && referral.userId?.username.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (referral.userId?.fullname && referral.userId.fullname.toLowerCase().includes(searchTerm.toLowerCase()))
     )
   })

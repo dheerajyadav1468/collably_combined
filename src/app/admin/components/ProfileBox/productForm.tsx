@@ -10,7 +10,7 @@ import type { Product } from "../../app/store/prductSlice"
 import type { Brand } from "../../app/store/brandSlice"
 import ProductModal from "./modalProduct"
 import Select from "react-select"
-
+import React from "react"
 const ProductForm = () => {
   const dispatch = useDispatch<AppDispatch>()
   const router = useRouter()
@@ -40,21 +40,27 @@ const ProductForm = () => {
   const [loggedInBrandId, setLoggedInBrandId] = useState<string | null>(null)
 
   useEffect(() => {
-    const role = localStorage.getItem("userType")
-    setUserRole(role)
-    console.log(role);
-    const brandId = localStorage.getItem("brandId")
-    setLoggedInBrandId(brandId)
-
-    if (role !== "admin") {
-      setFormData((prev) => ({ ...prev, brandId: brandId || "" }))
+    if (typeof window !== "undefined") {
+      const role = localStorage.getItem("userType");
+      setUserRole(role);
+      console.log(role);
+  
+      const brandId = localStorage.getItem("brandId");
+      setLoggedInBrandId(brandId);
+  
+      if (role !== "admin") {
+        setFormData((prev) => ({ ...prev, brandId: brandId || "" }));
+      }
+  
+      dispatch(fetchAllBrands());
+  
+      if (productId) {
+        dispatch(fetchProduct(productId));
+      }
     }
-
-    dispatch(fetchAllBrands())
-    if (productId) {
-      dispatch(fetchProduct(productId))
-    }
-  }, [dispatch, productId])
+  }, [dispatch, productId]);
+  
+  
 
   useEffect(() => {
     if (currentProduct && productId) {

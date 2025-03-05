@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ClickOutside from "../../components/ClickOutside";
 import Image from "next/image";
-
+import React from "react"
 const notificationList = [
   {
     image: "/images/user/user-15.png",

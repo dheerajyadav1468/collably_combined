@@ -39,7 +39,7 @@ const menuGroups = [
             />
           </svg>
         ),
-        label: "Dashboard", route: "/brandPanel" ,
+        label: "Dashboard", route: "/admin/app/brandPanel" ,
        
       },
       {
@@ -67,7 +67,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Products",
-        route: "/productTable",
+        route: "/admin/app/productTable",
       },
       {
         icon: (
@@ -94,7 +94,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Orders",
-        route: "/order-table",
+        route: "/admin/app/order-table",
       },
       {
         icon: (
@@ -136,7 +136,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Coupons",
-        route: "/coupon",
+        route: "/admin/app/coupon",
       },
       {
         icon: (

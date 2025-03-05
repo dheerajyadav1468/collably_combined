@@ -7,7 +7,7 @@ import type { AppDispatch, RootState } from "../../app/store/store"
 import { fetchProduct } from "../../app/store/prductSlice"
 import Link from "next/link"
 import DefaultLayoutBrand from "../../components/Layouts/DefaultLayoutBrand";
-
+import React from "react"
 const ProfileProduct = () => {
   const dispatch = useDispatch<AppDispatch>()
   const searchParams = useSearchParams()

@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from './card'
 import { Coins, DollarSign, ShoppingCart, RefreshCcw, Package, Store, Users, Ticket, Upload, TypeIcon as type, LucideIcon } from 'lucide-react'
-
+import React from "react"
 interface MetricCardProps {
   icon: LucideIcon
   value: string | number

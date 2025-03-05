@@ -7,7 +7,7 @@ import PanelNavigation from "../../components/DataStats/cardTwo"; // Corrected i
 import { MostSoldProducts } from "../../components/Card/brandCardOne";
 import { MostSoldBrands } from "../../components/Card/brandCardTwo";
 import { PopularCustomer } from "../../components/Card/brandCardThree";
-
+import React from "react"
 export default function Home() {
   const [activePanel, setActivePanel] = useState<"customer" | "brand">("brand");
 

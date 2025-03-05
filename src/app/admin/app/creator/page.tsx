@@ -1,6 +1,6 @@
 import Breadcrumb from "../../components/Breadcrumbs/Breadcrumb";
 import TableCreator from "../../components/Tables/TableCreator";
-
+import React from "react"
 import { Metadata } from "next";
 import DefaultLayout from "../../components/Layouts/DefaultLaout";
 

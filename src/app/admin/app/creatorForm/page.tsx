@@ -4,7 +4,7 @@ import Breadcrumb from "../../components/Breadcrumbs/Breadcrumb";
 import CreatorOnboardingForm from '../../components/ProfileBox/creatorform';
 import { Metadata } from "next";
 import DefaultLayout from "../../components/Layouts/DefaultLaout";
-
+import React from "react"
 type CreatorFormData = {
     brandName: string;
     brandLogo: File | null;

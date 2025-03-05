@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import type { AppDispatch, RootState } from "../../app/store/store"
 import { fetchUser } from "../../app/store/userSlice"
 import Link from "next/link"
-
+import React from "react"
 const ProfileUser = () => {
   const dispatch = useDispatch<AppDispatch>()
   const searchParams = useSearchParams()

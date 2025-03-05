@@ -1,6 +1,6 @@
 import { BRAND } from "../../types/brand";
 import Image from "next/image";
-
+import React from "react"
 const brandData: BRAND[] = [
   {
     logo: "/images/brand/brand-01.svg",

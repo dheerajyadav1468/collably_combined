@@ -1,5 +1,5 @@
 import { useRef, useEffect, ReactNode, useCallback } from "react";
-
+import React from "react"
 interface ClickOutsideProps {
   children: ReactNode;
   onClickOutside?: () => void; // ✅ Optional function, prevents undefined errors

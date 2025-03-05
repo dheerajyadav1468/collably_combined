@@ -40,7 +40,7 @@ export const fetchAllOrders = createAsyncThunk("orders/fetchAllOrders", async ()
 
   const response = await fetch(API_ROUTES.GET_ALL_ORDERS, {
     headers: {
-      Authorization: token,
+      Authorization: token? `Bearer ${token}` : 'undefined',
     },
   });
 
@@ -99,7 +99,7 @@ const ordersSlice = createSlice({
       })
       .addCase(fetchBrandOrders.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message;
+        state.error = action.error.message ?? "Unknown error";
       })
       .addCase(fetchProductDetails.fulfilled, (state, action) => {
         console.log("Updating productDetails in Redux:", action.payload);

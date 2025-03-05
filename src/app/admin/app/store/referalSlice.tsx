@@ -6,6 +6,7 @@ export interface Referral {
   userId: {
     _id: string;
     fullname: string;
+    username: string
   };
   referralLink: string;
   clicks: number;
@@ -25,9 +26,10 @@ const initialState: ReferralState = {
 };
 
 export const fetchReferrals = createAsyncThunk('referrals/fetchReferrals', async () => {
+  const token = localStorage.getItem("token");
   const response = await fetch(API_ROUTES.GET_ALL_REFERRALS, {
     headers: {
-      Authorization: localStorage.getItem('token'),
+      Authorization: token? `Bearer ${token}` : 'undefined',
     },
   });
   if (!response.ok) {

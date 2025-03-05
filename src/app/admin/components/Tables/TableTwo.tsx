@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Product } from "../../types/product";
-
+import React from "react"
 const productData: Product[] = [
   {
     image: "/images/product/product-01.png",

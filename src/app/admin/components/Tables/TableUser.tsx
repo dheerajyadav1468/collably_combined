@@ -7,7 +7,7 @@ import type { AppDispatch, RootState } from "../../app/store/store"
 import { fetchAllUsers } from "../../app/store/userSlice"
 import Link from "next/link"
 import { Eye, Edit, UserPlus } from "lucide-react"
-
+import React from "react"
 const UserTable = () => {
   const dispatch = useDispatch<AppDispatch>()
   const router = useRouter()

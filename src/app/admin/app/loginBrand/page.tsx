@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import {useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { API_ROUTES } from "../apiroutes"
+import React from "react"
 
 const LoginForm = () => {
   const router = useRouter()
@@ -22,9 +23,15 @@ const LoginForm = () => {
     }))
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  
     try {
       const response = await fetch(API_ROUTES.BRAND_LOGIN, {
         method: "POST",
@@ -32,29 +39,34 @@ const LoginForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
-
+      });
+  
       if (response.ok) {
-       
-        const data = await response.json()
-
-        localStorage.setItem("isLoggedIn", "true")
-        localStorage.setItem("userType", "brand")
-        localStorage.setItem("brandId", data.brand.brandId)
-        localStorage.setItem("userName", data.brand.brandName)
-        localStorage.setItem("token", data.token)
-
-        setError(null)
-        router.push("/brandPanel")
+        const data = await response.json();
+  
+        // ✅ Check if window is defined before accessing localStorage
+        if (typeof window !== "undefined") {
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("userType", "brand");
+          localStorage.setItem("brandId", data.brand.brandId);
+          localStorage.setItem("userName", data.brand.brandName);
+          localStorage.setItem("token", data.token);
+        }
+  
+        setError(null);
+        router.push("/admin/app/brandPanel");
       } else {
-        const errorData = await response.json()
-        setError(errorData.message || "Invalid email or password")
+        const errorData = await response.json();
+        setError(errorData.message || "Invalid email or password");
       }
     } catch (error) {
-      setError("An error occurred. Please try again.")
-      console.error("Login error:", error)
+      setError("An error occurred. Please try again.");
+      console.error("Login error:", error);
     }
-  }
+  };
+  
+  
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">

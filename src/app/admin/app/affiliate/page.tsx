@@ -3,7 +3,7 @@
 
 import Breadcrumb from "../../components/Breadcrumbs/Breadcrumb";
 import ReferalTable  from "../../components/Tables/referalTable";
-
+import React from "react"
 // import { Metadata } from "next";
 import DefaultLayout from "../../components/Layouts/DefaultLaout";
 

@@ -3,7 +3,7 @@
 import Breadcrumb from "../../components/Breadcrumbs/Breadcrumb";
 import ProductForm from "../../components/ProfileBox/productForm";
 import DefaultLayoutBrand from "../../components/Layouts/DefaultLayoutBrand";
-
+import React from "react"
 const TablesPage = () => {
   return (
     <DefaultLayoutBrand>

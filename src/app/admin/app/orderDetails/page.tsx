@@ -11,6 +11,7 @@ import { ArrowLeft, Package, User, CreditCard, Truck, Calendar, Clock } from "lu
 import Link from "next/link"
 import Image from "next/image"
 import DefaultLayoutBrand from "../../components/Layouts/DefaultLayoutBrand";
+import React from "react"
 
 interface OrderItem {
   product: string | null
@@ -69,30 +70,34 @@ export default function OrderDetails() {
     const fetchOrderDetails = async () => {
       setLoading(true)
       try {
-        const token = localStorage.getItem("token")
+        let token = ""
+    
+        // Ensure localStorage is only accessed on the client side
+        if (typeof window !== "undefined") {
+          token = localStorage.getItem("token")
+        }
+    
         if (!token) {
           throw new Error("Authentication token not found")
         }
-
+    
         const response = await fetch(API_ROUTES.GET_ORDER(orderId), {
           headers: {
             Authorization: token,
           },
         })
-
+    
         if (!response.ok) {
           throw new Error("Failed to fetch order details")
         }
-
+    
         const data = await response.json()
         setOrder(data.order)
-
-        // Fetch user details
+    
         if (data.order.user) {
           dispatch(fetchUser(data.order.user))
         }
-
-        // Fetch product details for each item
+    
         for (const item of data.order.items) {
           if (item.product) {
             const productResponse = await dispatch(fetchProduct(item.product))

@@ -26,13 +26,13 @@ const initialState: ProductsState = {
   status: "idle",
   error: null,
 }
-
+const token = localStorage.getItem("token");
 export const createProduct = createAsyncThunk("products/createProduct", async (productData: Omit<Product, "_id">) => {
   const response = await fetch(API_ROUTES.CREATE_PRODUCT, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization:  localStorage.getItem("token"),
+      Authorization: token? `Bearer ${token}` : 'undefined',
     },
     body: JSON.stringify(productData),
   })
@@ -53,7 +53,7 @@ export const fetchAllProducts = createAsyncThunk("products/fetchAllProducts", as
 export const fetchBrandProducts = createAsyncThunk("products/fetchBrandProducts", async (brandId: string) => {
   const response = await fetch(`${API_ROUTES.GET_BRAND_PRODUCTS}?brandId=${brandId}`, {
     headers: {
-      Authorization: localStorage.getItem("token"),
+      Authorization: token? `Bearer ${token}` : 'undefined',
     },
   })
   if (!response.ok) {
@@ -65,7 +65,7 @@ export const fetchBrandProducts = createAsyncThunk("products/fetchBrandProducts"
 export const fetchProduct = createAsyncThunk("products/fetchProduct", async (id: string) => {
   const response = await fetch(API_ROUTES.GET_PRODUCT(id), {
     headers: {
-      Authorization: localStorage.getItem("token"),
+      Authorization: token? `Bearer ${token}` : 'undefined',
     },
   })
   if (!response.ok) {
@@ -78,7 +78,7 @@ export const deleteProduct = createAsyncThunk("products/deleteProduct", async (i
   const response = await fetch(API_ROUTES.DELETE_PRODUCT(id), {
     method: "DELETE",
     headers: {
-      Authorization: localStorage.getItem("token"),
+      Authorization: token? `Bearer ${token}` : 'undefined',
     },
   })
   if (!response.ok) {
@@ -94,7 +94,7 @@ export const updateProduct = createAsyncThunk(
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
+        Authorization: token? `Bearer ${token}` : 'undefined',
       },
       body: JSON.stringify(productData),
     })
