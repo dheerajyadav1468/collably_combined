@@ -1,5 +1,5 @@
 "use client"
-import React from "react"
+
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useDispatch, useSelector } from "react-redux"
@@ -30,8 +30,6 @@ interface ProductDetails {
 }
 
 export default function OrderTable() {
-
-  const [isClient, setIsClient] = useState(false);
   const dispatch = useDispatch<AppDispatch>()
   const router = useRouter()
   const { orders, status, error } = useSelector((state: RootState) => state.orders)
@@ -48,26 +46,17 @@ console.log(orders)
   const [currentPage, setCurrentPage] = useState(1)
   const ordersPerPage = 10
 
-
   useEffect(() => {
-    setIsClient(true); // Runs only on client
-  }, []);
-  
-  useEffect(() => {
-    if (!isClient) return; // Ensures localStorage is only accessed on client
-  
-    const userType = localStorage.getItem("userType");
+    const userType = localStorage.getItem("userType")
     if (userType === "admin") {
-      dispatch(fetchAllOrders());
-    } else {
-      const brandId = localStorage.getItem("brandId");
+      dispatch(fetchAllOrders())
+    } else if (userType !== "admin") {
+      const brandId = localStorage.getItem("brandId")
       if (brandId) {
-        dispatch(fetchBrandOrders(brandId));
+        dispatch(fetchBrandOrders(brandId))
       }
     }
-  }, [isClient, dispatch]); // Runs only after isClient is true
-  
-  
+  }, [dispatch])
 
   useEffect(() => {
     if (!Array.isArray(orders) || orders.length === 0) return
